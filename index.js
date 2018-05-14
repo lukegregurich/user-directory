@@ -5,5 +5,6 @@ const changeHeading = function(){
   heading.textContent = 'It is changed'
 }
 
+
 const button = document.querySelector('button')
 button.addEventListener('click', changeHeading)
