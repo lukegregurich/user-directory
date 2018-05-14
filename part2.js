@@ -1,7 +1,7 @@
 console.log('It works!')
 
 const changeHeading2 = function(){
-  const heading2 = document.querySelectorAll('#header2')
+  const heading2 = document.querySelectorAll('.header')[1]
   heading2.textContent = 'It is changed'
 }
 
