@@ -1,9 +1,9 @@
 console.log('It works!')
 
-const changeHeading2 = function(){
-  const heading2 = document.querySelector('h2')
-  heading2.textContent = 'I feel... different'
+const changeHeading = function(){
+  const heading = document.querySelector('h1')
+  heading.textContent = document.getElementById("new name").value
 }
 
-const button = document.querySelector('button')
-button.addEventListener('click', changeHeading2)
+const formEntry = document.querySelector('form')
+formEntry.addEventListener('change', changeHeading)
