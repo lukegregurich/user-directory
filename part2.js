@@ -1,8 +1,8 @@
 console.log('It works!')
 
 const changeHeading2 = function(){
-  const heading2 = document.querySelectorAll('.header')[1]
-  heading2.textContent = 'It is changed'
+  const heading2 = document.querySelector('h2')
+  heading2.textContent = 'I feel... different'
 }
 
 const button = document.querySelector('button')
