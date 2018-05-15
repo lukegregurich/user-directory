@@ -25,8 +25,8 @@ const changeHeading = function(ev){
   const colorDiv = document.createElement('div')
   colorDiv.style.backgroundColor = favoriteColor
   colorDiv.style.width = '6rem'  //rem is relative to font size
-  colorDiv.style.height = '3rem'
-  colorItem.appendChild(colorDiv)
+  colorDiv.style.height = '3rem' //move these 4 above lines out to new function
+  colorItem.appendChild(colorDiv) //this will be colordiv()
   //p.textContent = `${userName}, ${age}`
   //p.style.backgroundColor = favoriteColor
   list.appendChild(nameItem)
