@@ -8,8 +8,9 @@ const changeHeading = function(ev){
   const form = ev.target
   const userName = form.userName.value
   const users = document.querySelector('#users')
-  users.innerHTML += userName
-  form.userName.value = ''
+  const age = form.age.value
+  users.innerHTML += '<p>' + userName + ', ' + age + '<p>'
+  form.reset();
 }
 
 form.addEventListener('submit', changeHeading)
