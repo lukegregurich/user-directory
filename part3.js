@@ -3,6 +3,7 @@ console.log('It works!')
 const changeHeading = function(ev){
   ev.preventDefault() //break point to pause execution, 
   //stop the page from refreshing
+  const userName = formEntry.userName.value
   const heading = document.querySelector('h1')
   const input = document.querySelector('input')
   heading.textContent = input.value
