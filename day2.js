@@ -9,13 +9,14 @@ const changeHeading = function(ev){
   const userName = form.userName.value
   const users = document.querySelector('#users')
   const age = form.age.value
-
+  const favoriteColor = form.favoriteColor.value
+  
   const p = document.createElement('p')
-  p.textContent = `${userName}, ${age}`
+  p.textContent = `${userName}, ${age}, ${favoriteColor}`
+  p.style.backgroundColor = favoriteColor
   users.appendChild(p)
   //users.innerHTML += `<p>${userName}, ${age}<p>`
 
-  
   form.reset();
   form.userName.focus()
 }
