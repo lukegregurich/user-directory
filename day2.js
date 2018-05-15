@@ -11,10 +11,18 @@ const changeHeading = function(ev){
   const age = form.age.value
   const favoriteColor = form.favoriteColor.value
   
-  const p = document.createElement('p')
-  p.textContent = `${userName}, ${age}`
-  p.style.backgroundColor = favoriteColor
-  users.appendChild(p)
+  const list = document.createElement('ul')
+
+  const nameItem = document.createElement('li')
+  nameItem.textContent = `Name: ${userName}`
+  
+  const ageItem = document.createElement('li')
+  ageItem.textContent = `Age: ${age}`
+  //p.textContent = `${userName}, ${age}`
+  //p.style.backgroundColor = favoriteColor
+  list.appendChild(nameItem)
+  list.appendChild(ageItem)
+  users.appendChild(list)
   //users.innerHTML += `<p>${userName}, ${age}<p>`
 
   form.reset();
