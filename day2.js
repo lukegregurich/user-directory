@@ -2,6 +2,15 @@ console.log('It works!')
 
 const form = document.querySelector('form#userForm')
 
+const renderColor = function(ev){
+  const colorDiv = document.createElement('div')
+  const favoriteColor = form.favoriteColor.value
+  colorDiv.style.backgroundColor = favoriteColor
+  colorDiv.style.width = '6rem'  //rem is relative to font size
+  colorDiv.style.height = '3rem' 
+  return colorDiv
+}
+
 const changeHeading = function(ev){
   ev.preventDefault() //break point to pause execution, 
   //stop the page from refreshing
@@ -22,11 +31,7 @@ const changeHeading = function(ev){
   const colorItem = document.createElement('li')
   colorItem.textContent = 'Favorite Color: '
 
-  const colorDiv = document.createElement('div')
-  colorDiv.style.backgroundColor = favoriteColor
-  colorDiv.style.width = '6rem'  //rem is relative to font size
-  colorDiv.style.height = '3rem' //move these 4 above lines out to new function
-  colorItem.appendChild(colorDiv) //this will be colordiv()
+  colorItem.appendChild(renderColor()) //this will be colordiv()
   //p.textContent = `${userName}, ${age}`
   //p.style.backgroundColor = favoriteColor
   list.appendChild(nameItem)
