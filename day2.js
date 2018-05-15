@@ -3,6 +3,7 @@ console.log('It works!')
 const form = document.querySelector('form#userForm')
 
 const renderColor = function(ev){
+  //function returns a `div` element for color  
   const colorDiv = document.createElement('div')
   const favoriteColor = form.favoriteColor.value
   colorDiv.style.backgroundColor = favoriteColor
@@ -12,12 +13,11 @@ const renderColor = function(ev){
 }
 
 const renderListItem = function(ev){
-    
+    //function creates the list items for each stat.
 }
 
-const changeHeading = function(ev){
-  ev.preventDefault() //break point to pause execution, 
-  //stop the page from refreshing
+const handleSubmit = function(ev){
+  ev.preventDefault() //break point to pause execution, stop the page from refreshing
   const form = ev.target
   const userName = form.userName.value
   const users = document.querySelector('#users')
@@ -35,7 +35,7 @@ const changeHeading = function(ev){
   const colorItem = document.createElement('li')
   colorItem.textContent = 'Favorite Color: '
 
-  colorItem.appendChild(renderColor()) //this will be colordiv()
+  colorItem.appendChild(renderColor()) //call the renderColor function to get the div element
   //p.textContent = `${userName}, ${age}`
   //p.style.backgroundColor = favoriteColor
   list.appendChild(nameItem)
@@ -48,4 +48,4 @@ const changeHeading = function(ev){
   form.userName.focus()
 }
 
-form.addEventListener('submit', changeHeading)
+form.addEventListener('submit', handleSubmit)
