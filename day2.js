@@ -18,10 +18,20 @@ const changeHeading = function(ev){
   
   const ageItem = document.createElement('li')
   ageItem.textContent = `Age: ${age}`
+
+  const colorItem = document.createElement('li')
+  colorItem.textContent = 'Favorite Color: '
+
+  const colorDiv = document.createElement('div')
+  colorDiv.style.backgroundColor = favoriteColor
+  colorDiv.style.width = '6rem'  //rem is relative to font size
+  colorDiv.style.height = '3rem'
+  colorItem.appendChild(colorDiv)
   //p.textContent = `${userName}, ${age}`
   //p.style.backgroundColor = favoriteColor
   list.appendChild(nameItem)
   list.appendChild(ageItem)
+  list.appendChild(colorItem)
   users.appendChild(list)
   //users.innerHTML += `<p>${userName}, ${age}<p>`
 
