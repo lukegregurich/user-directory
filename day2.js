@@ -11,6 +11,7 @@ const changeHeading = function(ev){
   const age = form.age.value
   users.innerHTML += '<p>' + userName + ', ' + age + '<p>'
   form.reset();
+  form.userName.focus()
 }
 
 form.addEventListener('submit', changeHeading)
