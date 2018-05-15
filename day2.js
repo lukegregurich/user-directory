@@ -12,7 +12,7 @@ const changeHeading = function(ev){
   const favoriteColor = form.favoriteColor.value
   
   const p = document.createElement('p')
-  p.textContent = `${userName}, ${age}, ${favoriteColor}`
+  p.textContent = `${userName}, ${age}`
   p.style.backgroundColor = favoriteColor
   users.appendChild(p)
   //users.innerHTML += `<p>${userName}, ${age}<p>`
