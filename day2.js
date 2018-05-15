@@ -11,6 +11,10 @@ const renderColor = function(ev){
   return colorDiv
 }
 
+const renderListItem = function(ev){
+    
+}
+
 const changeHeading = function(ev){
   ev.preventDefault() //break point to pause execution, 
   //stop the page from refreshing
