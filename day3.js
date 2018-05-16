@@ -28,8 +28,13 @@ const renderListItem = function(label, value){ //label and value correspond to "
   return item
 }
 
-const renderList = function(){
-
+const renderList = function(data){
+    const list = document.createElement('ul')
+    Object.keys(data).map(function(label){
+        const item = renderListItem(label, data[label])
+        list.appendChild(item)
+    })
+    return list
 }
 
 const handleSubmit = function(ev){
@@ -41,20 +46,16 @@ const handleSubmit = function(ev){
       favoriteColor: renderColor(form.favoriteColor.value),
   }
 
-  const list = document.createElement('ul')
-  Object.keys(user).map(function(label){
-    const item = renderListItem(label, user[label])
-    list.appendChild(item)
-  })
 
   //p.textContent = `${userName}, ${age}`
   //p.style.backgroundColor = favoriteColor
-  list.appendChild(renderListItem('Name', userName))
-  list.appendChild(renderListItem('Age', age))
-  list.appendChild(renderListItem('Favorite Color', favoriteColor))
+//   list.appendChild(renderListItem('Name', userName))
+//   list.appendChild(renderListItem('Age', age))
+//   list.appendChild(renderListItem('Favorite Color', favoriteColor))
+  const list = renderList(user)
+  const users = document.querySelector('#users')
   users.appendChild(list)
   //users.innerHTML += `<p>${userName}, ${age}<p>`
-
   form.reset();
   form.userName.focus()
 }
