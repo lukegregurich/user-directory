@@ -6,7 +6,7 @@ console.log('It works!')
 // const colorItem = null
 const form = document.querySelector('form#userForm')
 
-const renderColor = function(ev){ //or function(color)
+const renderColor = function(){ //or function(color)
   //function returns a `div` element for color  
   const colorDiv = document.createElement('div')
   const favoriteColor = form.favoriteColor.value
@@ -20,7 +20,6 @@ const renderListItem = function(label, value){ //label and value correspond to "
     //function creates the list items for each stat.
   const item = document.createElement('li')
   item.textContent = `${label}: ${value}`
- 
   return item
 }
 
@@ -51,8 +50,8 @@ const handleSubmit = function(ev){
   //p.textContent = `${userName}, ${age}`
   //p.style.backgroundColor = favoriteColor
   list.appendChild(renderListItem('Name', userName))
-  list.appendChild(renderListItem('Age', ageItem))
-  list.appendChild(renderListItem('Color', colorItem))
+  list.appendChild(renderListItem('Age', age))
+  list.appendChild(colorItem)
   users.appendChild(list)
   //users.innerHTML += `<p>${userName}, ${age}<p>`
 
