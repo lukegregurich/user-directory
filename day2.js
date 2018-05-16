@@ -16,15 +16,16 @@ const renderColor = function(ev){ //or function(color)
   return colorDiv
 }
 
-const renderListItem = function(ev){
+const renderListItem = function(label, value){ //label and value correspond to "Name:", then the actual name "Luke"
     //function creates the list items for each stat.
-  const nameItem = document.createElement('li')
-  nameItem.textContent = `Name: ${userName}`
-  const ageItem = document.createElement('li')
-  ageItem.textContent = `Age: ${age}`
-  const colorItem = document.createElement('li')
-  colorItem.textContent = 'Favorite Color: '
-  return
+  const item = document.createElement('li')
+  item.textContent = `${label}: ${value}`
+ 
+  return item
+}
+
+const renderList = function(){
+
 }
 
 const handleSubmit = function(ev){
@@ -37,21 +38,21 @@ const handleSubmit = function(ev){
   
   const list = document.createElement('ul')
 
-//   const nameItem = document.createElement('li')
-//   nameItem.textContent = `Name: ${userName}`
+  const nameItem = document.createElement('li')
+  nameItem.textContent = `Name: ${userName}`
   
-//   const ageItem = document.createElement('li')
-//   ageItem.textContent = `Age: ${age}`
+  const ageItem = document.createElement('li')
+  ageItem.textContent = `Age: ${age}`
 
-//   const colorItem = document.createElement('li')
-//   colorItem.textContent = 'Favorite Color: '
+  const colorItem = document.createElement('li')
+  colorItem.textContent = 'Favorite Color: '
   
-  renderListItem(colorItem).appendChild(renderColor(favoriteColor)) //call the renderColor function to get the div element
+  colorItem.appendChild(renderColor(favoriteColor)) //call the renderColor function to get the div element
   //p.textContent = `${userName}, ${age}`
   //p.style.backgroundColor = favoriteColor
-  list.appendChild(renderListItem(nameItem))
-  list.appendChild(renderListItem(ageItem))
-  list.appendChild(renderListItem(colorItem))
+  list.appendChild(renderListItem('Name', userName))
+  list.appendChild(renderListItem('Age', ageItem))
+  list.appendChild(renderListItem('Color', colorItem))
   users.appendChild(list)
   //users.innerHTML += `<p>${userName}, ${age}<p>`
 
