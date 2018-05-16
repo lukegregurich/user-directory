@@ -19,7 +19,12 @@ const renderColor = function(){ //or function(color)
 const renderListItem = function(label, value){ //label and value correspond to "Name:", then the actual name "Luke"
     //function creates the list items for each stat.
   const item = document.createElement('li')
-  item.textContent = `${label}: ${value}`
+  item.textContent = `${label}: `
+  try {
+    item.appendChild(value)
+  } catch(e) {
+    item.textContent += value
+  }
   return item
 }
 
@@ -33,16 +38,9 @@ const handleSubmit = function(ev){
   const userName = form.userName.value
   const users = document.querySelector('#users')
   const age = form.age.value
-  const favoriteColor = form.favoriteColor.value
+  const favoriteColor = renderColor(form.favoriteColor.value)
   
   const list = document.createElement('ul')
-
-  const nameItem = document.createElement('li')
-  nameItem.textContent = `Name: ${userName}`
-  
-  const ageItem = document.createElement('li')
-  ageItem.textContent = `Age: ${age}`
-
   const colorItem = document.createElement('li')
   colorItem.textContent = 'Favorite Color: '
   
@@ -51,7 +49,7 @@ const handleSubmit = function(ev){
   //p.style.backgroundColor = favoriteColor
   list.appendChild(renderListItem('Name', userName))
   list.appendChild(renderListItem('Age', age))
-  list.appendChild(colorItem)
+  list.appendChild(renderListItem('Favorite Color', favoriteColor))
   users.appendChild(list)
   //users.innerHTML += `<p>${userName}, ${age}<p>`
 
