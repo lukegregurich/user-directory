@@ -1,9 +1,4 @@
 console.log('It works!')
-
-//const globalObject = {};
-// const nameItem = null
-// const ageItem = null
-// const colorItem = null
 const form = document.querySelector('form#userForm')
 
 const renderColor = function(){ //or function(color)
@@ -29,8 +24,8 @@ const renderListItem = function(label, value){ //label and value correspond to "
 }
 
 const renderList = function(data){
-    const list = document.createElement('ul')
-    Object.keys(data).map(function(label){
+    const list = document.createElement('dl')
+    Object.keys(data).forEach(label => {
         const item = renderListItem(label, data[label])
         list.appendChild(item)
     })
@@ -45,8 +40,6 @@ const handleSubmit = function(ev){
       age: form.age.value,
       favoriteColor: renderColor(form.favoriteColor.value),
   }
-
-
   //p.textContent = `${userName}, ${age}`
   //p.style.backgroundColor = favoriteColor
 //   list.appendChild(renderListItem('Name', userName))
@@ -61,3 +54,4 @@ const handleSubmit = function(ev){
 }
 
 form.addEventListener('submit', handleSubmit)
+

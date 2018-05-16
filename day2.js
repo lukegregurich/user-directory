@@ -1,9 +1,4 @@
 console.log('It works!')
-
-//const globalObject = {};
-// const nameItem = null
-// const ageItem = null
-// const colorItem = null
 const form = document.querySelector('form#userForm')
 
 const renderColor = function(){ //or function(color)
@@ -28,31 +23,32 @@ const renderListItem = function(label, value){ //label and value correspond to "
   return item
 }
 
-const renderList = function(){
-
+const renderList = function(data){
+    const list = document.createElement('ul')
+    Object.keys(data).map(function(label){
+        const item = renderListItem(label, data[label])
+        list.appendChild(item)
+    })
+    return list
 }
 
 const handleSubmit = function(ev){
   ev.preventDefault() //break point to pause execution, stop the page from refreshing
   const form = ev.target
-  const userName = form.userName.value
-  const users = document.querySelector('#users')
-  const age = form.age.value
-  const favoriteColor = renderColor(form.favoriteColor.value)
-  
-  const list = document.createElement('ul')
-  const colorItem = document.createElement('li')
-  colorItem.textContent = 'Favorite Color: '
-  
-  colorItem.appendChild(renderColor(favoriteColor)) //call the renderColor function to get the div element
+  const user = {
+      name: form.userName.value,
+      age: form.age.value,
+      favoriteColor: renderColor(form.favoriteColor.value),
+  }
   //p.textContent = `${userName}, ${age}`
   //p.style.backgroundColor = favoriteColor
-  list.appendChild(renderListItem('Name', userName))
-  list.appendChild(renderListItem('Age', age))
-  list.appendChild(renderListItem('Favorite Color', favoriteColor))
+//   list.appendChild(renderListItem('Name', userName))
+//   list.appendChild(renderListItem('Age', age))
+//   list.appendChild(renderListItem('Favorite Color', favoriteColor))
+  const list = renderList(user)
+  const users = document.querySelector('#users')
   users.appendChild(list)
   //users.innerHTML += `<p>${userName}, ${age}<p>`
-
   form.reset();
   form.userName.focus()
 }
